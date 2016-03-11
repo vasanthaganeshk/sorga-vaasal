@@ -1994,6 +1994,7 @@ struct vki_cdrom_generic_command
 #define VKI_CD_HEAD_SIZE          4 /* header (address) bytes per raw data frame */
 #define VKI_CD_FRAMESIZE_RAW   2352 /* bytes per frame, "raw" mode */
 #define VKI_CD_FRAMESIZE_RAW0 (VKI_CD_FRAMESIZE_RAW-VKI_CD_SYNC_SIZE-VKI_CD_HEAD_SIZE) /*2336*/
+#define VKI_CD_FRAMESIZE_RAW1  2048 /* bytes per frame, mode 1*/
 
 //----------------------------------------------------------------------
 // From linux-2.6.8.1/include/linux/soundcard.h
