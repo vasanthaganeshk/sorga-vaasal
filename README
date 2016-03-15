@@ -1,16 +1,4 @@
-
-Release notes for Valgrind
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-If you are building a binary package of Valgrind for distribution,
-please read README_PACKAGERS.  It contains some important information.
-
-If you are developing Valgrind, please read README_DEVELOPERS.  It contains
-some useful information.
-
-For instructions on how to build/install, see the end of this file.
-
-If you have problems, consult the FAQ to see if there are workarounds.
-
+WARNING: Work in progress (porting to Hurn)
 
 Executive Summary
 ~~~~~~~~~~~~~~~~~
@@ -27,31 +15,8 @@ three experimental tools: a heap/stack/global array overrun detector,
 a different kind of heap profiler, and a SimPoint basic block vector
 generator.
 
-Valgrind is closely tied to details of the CPU, operating system and to
-a lesser extent, compiler and basic C libraries. This makes it difficult
-to make it portable.  Nonetheless, it is available for the following
-platforms: 
-
-- X86/Linux
-- AMD64/Linux
-- PPC32/Linux
-- PPC64/Linux
-- ARM/Linux
-- x86/MacOSX
-- AMD64/MacOSX
-- S390X/Linux
-- MIPS32/Linux
-- MIPS64/Linux
-
-Note that AMD64 is just another name for x86_64, and Valgrind runs fine
-on Intel processors.  Also note that the core of MacOSX is called
-"Darwin" and this name is used sometimes.
-
 Valgrind is licensed under the GNU General Public License, version 2. 
 Read the file COPYING in the source distribution for details.
-
-However: if you contribute code, you need to make it available as GPL
-version 2 or later, and not 2-only.
 
 
 Documentation
@@ -61,38 +26,15 @@ $PREFIX/share/doc/valgrind/manual.html, where $PREFIX is whatever you
 specified with --prefix= when building.
 
 
-Building and installing it
-~~~~~~~~~~~~~~~~~~~~~~~~~~
-To install from the Subversion repository :
+Building and installing it(from source)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(First clone this repository)
+$./autogen.sh
+$./configure --prefix=<install destination, don't choose this option if you want it installed in /usr/>
+$make
+#make install
 
-  0. Check out the code from SVN, following the instructions at
-     http://www.valgrind.org/downloads/repository.html.
-
-  1. cd into the source directory.
-
-  2. Run ./autogen.sh to setup the environment (you need the standard
-     autoconf tools to do so).
-
-  3. Continue with the following instructions...
-
-To install from a tar.bz2 distribution:
-
-  4. Run ./configure, with some options if you wish.  The only interesting
-     one is the usual --prefix=/where/you/want/it/installed.
-
-  5. Run "make".
-
-  6. Run "make install", possibly as root if the destination permissions
-     require that.
-
-  7. See if it works.  Try "valgrind ls -l".  Either this works, or it
-     bombs out with some complaint.  In that case, please let us know
-     (see www.valgrind.org).
-
-Important!  Do not move the valgrind installation into a place
-different from that specified by --prefix at build time.  This will
-cause things to break in subtle ways, mostly when Valgrind handles
-fork/exec calls.
-
-
-The Valgrind Developers
+Uninstalling
+~~~~~~~~~~~~
+#make uninstall
+#make clean
